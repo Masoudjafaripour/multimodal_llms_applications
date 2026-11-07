@@ -105,13 +105,13 @@ For GPT-4o, replace the placeholder `openai_api_key` in the script with your key
 A 12-month series $s \in \mathbb{R}^{12}$ becomes a $3\times4$ grid, is min-max normalised and copied to 3 channels:
 
 $$
-\tilde s = \frac{s - \min s}{\max s - \min s + \varepsilon}, \qquad X = \operatorname{stack}_3\big(\operatorname{reshape}_{3\times4}(\tilde s)\big)
+\tilde s = \frac{s - \min s}{\max s - \min s + \varepsilon}, \qquad X = \mathrm{stack}_3\big(\mathrm{reshape}_{3\times4}(\tilde s)\big)
 $$
 
 The frozen encoder output is averaged into one feature vector, and only a small MLP head on top is trained with MSE loss:
 
 $$
-z = \operatorname{GAP}\big(f_{\text{VisionTS}}(X)\big) \in \mathbb{R}^{768}, \qquad \hat y = \operatorname{MLP}(z), \qquad \mathcal{L} = \tfrac{1}{N}\sum_i (\hat y_i - y_i)^2
+z = \mathrm{GAP}\big(f_{\text{VisionTS}}(X)\big) \in \mathbb{R}^{768}, \qquad \hat y = \mathrm{MLP}(z), \qquad \mathcal{L} = \tfrac{1}{N}\sum_i (\hat y_i - y_i)^2
 $$
 
 - [`vision_st.py`](src/time_series_vision/vision_st.py) trains this single-input forecaster.
