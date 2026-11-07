@@ -22,7 +22,7 @@ MODEL_LAYOUTLM = "microsoft/layoutlmv3-base"
 MODEL_DONUT = "naver-clova-ix/donut-base-finetuned-docvqa"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-IMAGE_PATH = "floorplan3.jpg"   # your input blueprint
+IMAGE_PATH = "results/blueprints/floorplan3.jpg"   # your input blueprint
 MAX_NEW_TOKENS = 256
 
 

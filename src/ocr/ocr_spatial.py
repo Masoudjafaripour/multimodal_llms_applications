@@ -3,7 +3,7 @@ import pytesseract
 from pytesseract import Output
 
 # === Load an example image (document, form, etc.) ===
-image_path = "sample_doc.png"   # replace with your image
+image_path = "results/ocr/sample_doc.png"   # replace with your image
 img = cv2.imread(image_path)
 
 # === 1️⃣ Basic OCR: simple text only ===
@@ -27,5 +27,5 @@ for i in range(len(data['text'])):
         x, y, w, h = data['left'][i], data['top'][i], data['width'][i], data['height'][i]
         cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 1)
 
-cv2.imwrite("results/layout_aware_output.png", img)
-print("\nSaved visualization to results/layout_aware_output.png")
+cv2.imwrite("results/ocr/layout_aware_output.png", img)
+print("\nSaved visualization to results/ocr/layout_aware_output.png")

@@ -11,7 +11,7 @@ pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
 ).to("cuda")
 
 # === 2. Load input floorplan ===
-input_image = Image.open("walls.jpg").convert("RGB")
+input_image = Image.open("results/floorplan_walls/walls.jpg").convert("RGB")
 
 # === 3. Clean-only prompt (structure preservation) ===
 prompt = (
@@ -29,8 +29,8 @@ result = pipe(
 ).images[0]
 
 # === 5. Save output ===
-result.save("walls_diffusion_refined.png")
-print("✅ Saved: walls_diffusion_refined.png")
+result.save("results/floorplan_walls/walls_diffusion_refined.png")
+print("✅ Saved: results/floorplan_walls/walls_diffusion_refined.png")
 
 
 # # pip install diffusers transformers accelerate safetensors opencv-python pillow torch torchvision
@@ -49,7 +49,7 @@ print("✅ Saved: walls_diffusion_refined.png")
 # ).to("cuda")
 
 # # === 2. Input image ===
-# input_path = "walls.jpg"
+# input_path = "results/floorplan_walls/walls.jpg"
 # img = load_image(input_path)
 
 # # === 3. Prompt to guide denoising (keep lines, remove text) ===
@@ -69,5 +69,5 @@ print("✅ Saved: walls_diffusion_refined.png")
 
 # # === 5. Save result ===
 # out_image = out.images[0]
-# out_image.save("walls_diffusion_clean.png")
-# print("✅ Saved: walls_diffusion_clean.png")
+# out_image.save("results/floorplan_walls/walls_diffusion_clean.png")
+# print("✅ Saved: results/floorplan_walls/walls_diffusion_clean.png")

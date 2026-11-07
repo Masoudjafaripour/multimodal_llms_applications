@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # === 1. Load image ===
-img = cv2.imread("walls.jpg")  # or your .png
+img = cv2.imread("results/floorplan_walls/walls.jpg")  # or your .png
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # === 2. Adaptive threshold (preserves faint, thin walls) ===
@@ -35,14 +35,14 @@ mask = cv2.erode(mask, np.ones((3,3), np.uint8), iterations=1)
 
 # === 6. Save final wall-only image ===
 result = cv2.bitwise_not(mask)  # black walls on white
-cv2.imwrite("walls_only.png", result)
-print("✅ Saved clean wall-only image: walls_only.png")
+cv2.imwrite("results/floorplan_walls/walls_only.png", result)
+print("✅ Saved clean wall-only image: results/floorplan_walls/walls_only.png")
 
 # import cv2
 # import numpy as np
 
 # # === 1. Load image ===
-# img = cv2.imread("walls.jpg")  # or .png
+# img = cv2.imread("results/floorplan_walls/walls.jpg")  # or .png
 # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # # === 2. Adaptive threshold (preserves faint lines) ===
@@ -74,5 +74,5 @@ print("✅ Saved clean wall-only image: walls_only.png")
 
 # # === 6. Save result ===
 # result = cv2.bitwise_not(mask)
-# cv2.imwrite("walls_filtered_safe.png", result)
-# print("✅ Saved: walls_filtered_safe.png")
+# cv2.imwrite("results/floorplan_walls/walls_filtered_safe.png", result)
+# print("✅ Saved: results/floorplan_walls/walls_filtered_safe.png")
